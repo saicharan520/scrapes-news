@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Recommender</title>
+</head>
+<body>
+    <h1>Recommended Articles</h1>
+    <form action="/add_pref" method="POST">
+        <input name="keyword" placeholder="Add a keyword" required>
+        <button type="submit">Add Preference</button>
+    </form>
+    <h3>Your Preferences:</h3>
+    <ul>
+        {% for pref in preferences %}
+        <li>{{ pref }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Articles:</h3>
+    <ul>
+        {% for article in articles %}
+        <li><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="https://www.theverge.com">Scrape Latest News</a>
+</body>
+</html>
